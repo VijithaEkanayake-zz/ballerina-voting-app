@@ -41,6 +41,7 @@ service<http:WebSocketService> VoteApp {
         var removeVote = votes.remove(caller.id);
         voteResults = countVotes(votes);
         var closeCon = connections.remove(caller.id);
+	 voteResults = countVotes(votes);
         broadcast(reason);
     }
 }
