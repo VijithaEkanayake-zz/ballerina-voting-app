@@ -39,10 +39,9 @@ service<http:WebSocketService> VoteApp {
     onClose(endpoint caller, int statusCode, string reason) {
         // Broadcast the message to existing connections
         var removeVote = votes.remove(caller.id);
-        voteResults = countVotes(votes);
         var closeCon = connections.remove(caller.id);
-	 voteResults = countVotes(votes);
-        broadcast(reason);
+        voteResults = countVotes(votes);
+        broadcast(voteResults);
     }
 }
 
